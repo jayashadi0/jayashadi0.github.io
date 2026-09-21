@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画歌曲-经典动漫原声、OPED鉴赏与排行榜</title>
+    <meta name="description" content="动画歌曲网提供海量高质量动漫原声、片头曲(ED)及片尾曲鉴赏。包含热门动画歌曲排行榜、歌手作品分类、经典曲目回顾及动漫音乐周边资讯。">
+    <meta name="keywords" content="动画歌曲,动漫原声,OPED,片头曲,片尾曲,动漫音乐,动漫歌曲推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #00cec9;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --bg-body: #f9f9fc;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f1f2f6;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(120deg, #a29bfe 0%, #74b9ff 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Trending Grid */
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .song-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .song-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .song-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-artist {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Top 100 List */
+        .top-list-container {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+
+        .top-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        .top-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-rank {
+            font-size: 24px;
+            font-weight: 800;
+            width: 50px;
+            color: #dfe6e9;
+            font-style: italic;
+        }
+
+        .top-item:nth-child(1) .top-rank { color: #fdcb6e; }
+        .top-item:nth-child(2) .top-rank { color: #b2bec3; }
+        .top-item:nth-child(3) .top-rank { color: #e17055; }
+
+        .top-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .top-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .top-anime {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .top-artist {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .category-item:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            font-size: 15px;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 14px;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .top-list-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>♪</span> 动画歌曲
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">歌曲鉴赏</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">歌手专区</a></li>
+                    <li><a href="#">资讯动态</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索歌曲、动画或歌手...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>听见动画的灵魂</h1>
+                <p>汇集全网热门动漫原声、经典OPED，为您呈现最动人的二次元旋律。</p>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container">
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="cat-icon">🎵</span>
+                    <div class="cat-name">片头曲 (OP)</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🎶</span>
+                    <div class="cat-name">片尾曲 (ED)</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">💿</span>
+                    <div class="cat-name">OST专辑</div>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🎤</span>
+                    <div class="cat-name">角色歌</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Songs -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">本周热门推荐</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="trending-grid">
+                <article class="song-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/anime1/400/300" alt="封面图">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">片头曲</div>
+                        <h3 class="card-title">红莲华</h3>
+                        <div class="card-artist">LiSA</div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/anime2/400/300" alt="封面图">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">片尾曲</div>
+                        <h3 class="card-title">青春纪行</h3>
+                        <div class="card-artist">RIP SLYME</div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/anime3/400/300" alt="封面图">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">片头曲</div>
+                        <h3 class="card-title">极乐净土</h3>
+                        <div class="card-artist">GARNiDELiA</div>
+                    </div>
+                </article>
+                <article class="song-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/anime4/400/300" alt="封面图">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">OST</div>
+                        <h3 class="card-title">起风了</h3>
+                        <div class="card-artist">买辣椒也用券</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Top 100 Chart -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">动画歌曲 TOP 100</h2>
+                <a href="#" class="view-all">完整榜单 &rarr;</a>
+            </div>
+            <div class="top-list-container">
+                <div class="top-item">
+                    <div class="top-rank">1</div>
+                    <div class="top-info">
+                        <div class="top-title">前前前世</div>
+                        <div class="top-anime">《你的名字。》主题曲</div>
+                    </div>
+                    <div class="top-artist">RADWIMPS</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">2</div>
+                    <div class="top-info">
+                        <div class="top-title">Unravel</div>
+                        <div class="top-anime">《东京食尸鬼》主题曲</div>
+                    </div>
+                    <div class="top-artist">TK from 凛冽时雨</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">3</div>
+                    <div class="top-info">
+                        <div class="top-title">Orange</div>
+                        <div class="top-anime">《刀剑神域 Alicization》主题曲</div>
+                    </div>
+                    <div class="top-artist">LiSA</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">4</div>
+                    <div class="top-info">
+                        <div class="top-title">Lemon</div>
+                        <div class="top-anime">《非自然死亡》片尾曲</div>
+                    </div>
+                    <div class="top-artist">米津玄师</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">5</div>
+                    <div class="top-info">
+                        <div class="top-title">打上花火</div>
+                        <div class="top-anime">《言叶之庭》片尾曲</div>
+                    </div>
+                    <div class="top-artist">DAOKO / 米津玄师</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">6</div>
+                    <div class="top-info">
+                        <div class="top-title">残酷天使的行动纲领</div>
+                        <div class="top-anime">《新世纪福音战士》片头曲</div>
+                    </div>
+                    <div class="top-artist">高桥洋子</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">7</div>
+                    <div class="top-info">
+                        <div class="top-title">魂之舞</div>
+                        <div class="top-anime">《鬼灭之刃》片头曲</div>
+                    </div>
+                    <div class="top-artist">YOASOBI</div>
+                </div>
+                <div class="top-item">
+                    <div class="top-rank">8</div>
+                    <div class="top-info">
+                        <div class="top-title">大笨钟</div>
+                        <div class="top-anime">《赛马娘 Pretty Derby》片头曲</div>
+                    </div>
+                    <div class="top-artist">Miyavi / Uru</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">动画歌曲主要包含哪些类型？</div>
+                    <div class="faq-answer">动画歌曲主要分为片头曲（OP）和片尾曲（ED），此外还包括动漫原声带（OST）、角色歌以及动画的印象曲、插入曲等。不同类型的歌曲在剧情中起到不同的烘托作用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何找到我喜欢的动画的OST？</div>
+                    <div class="faq-answer">您可以在本站通过搜索动画名称或歌曲标题来查找。同时，我们提供了按歌手、动画类型分类的浏览功能，方便您发现更多优质的音乐资源。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">为什么有些歌曲无法播放？</div>
+                    <div class="faq-answer">由于版权限制，部分歌曲可能仅提供试听片段。此外，网络连接不稳定也可能导致播放中断。建议在Wi-Fi环境下进行试听。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #b2bec3; font-size: 14px; line-height: 1.8;">
+                        动画歌曲网是一个致力于分享和推广优质动漫音乐的平台，为二次元爱好者提供最全面的音乐鉴赏体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">热门排行</a></li>
+                        <li><a href="#">最新更新</a></li>
+                        <li><a href="#">歌手列表</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 动画歌曲网 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠交互
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 搜索框交互模拟
+        const searchInput = document.querySelector('.search-box input');
+        const searchBtn = document.querySelector('.search-box button');
+        
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if(query) {
+                alert('正在搜索: ' + query);
+            }
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+    </script>
+</body>
+</html>
