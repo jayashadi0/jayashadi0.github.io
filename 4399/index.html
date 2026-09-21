@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4399造梦西游3无敌版 - 热门攻略、BOSS打法与全攻略汇总</title>
+    <meta name="description" content="本站提供4399造梦西游3无敌版下载、职业推荐、全BOSS打法攻略、副本通关技巧及技能加点指南。帮助玩家快速上手，轻松通关造梦西游3经典版本。">
+    <meta name="keywords" content="4399造梦西游3无敌版,造梦西游3攻略,造梦西游3BOSS打法,造梦西游3技能加点,造梦西游3下载">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: #ecf0f1;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Guide Cards */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .hot-list {
+            list-style: none;
+        }
+
+        .hot-list li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .hot-list .hot-num {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        /* Skills Table */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .skills-table th, .skills-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skills-table th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        .tag-high { background-color: #ffebee; color: #c62828; }
+        .tag-med { background-color: #fff3e0; color: #ef6c00; }
+        .tag-low { background-color: #e8f5e9; color: #2e7d32; }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background-color: #fafafa;
+            color: var(--text-secondary);
+        }
+
+        .faq-answer p {
+            padding: 1rem 0;
+        }
+
+        .faq-answer.open {
+            padding-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <span>造梦</span>攻略站
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#guide">攻略指南</a></li>
+                <li><a href="#skills">技能加点</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>4399造梦西游3无敌版</h1>
+        <p>重温经典，挑战极限。本站提供最全的造梦西游3无敌版攻略、BOSS打法、副本通关技巧及最强职业推荐。</p>
+        <a href="#guide" class="cta-button">立即开始挑战</a>
+    </div>
+</div>
+
+<main class="container">
+    <div class="main-grid">
+        <!-- 左侧主要内容区 -->
+        <div class="content-area">
+            
+            <!-- 攻略推荐 -->
+            <section id="guide">
+                <div class="section-title">
+                    <span>热门攻略精选</span>
+                    <a href="#" style="font-size:0.9rem; font-weight:normal;">查看更多 &rarr;</a>
+                </div>
+                <div class="guide-grid">
+                    <article class="card">
+                        <div class="card-img">
+                            <!-- 使用 Picsum 占位图，实际应为游戏截图 -->
+                            <img src="https://picsum.photos/seed/ddz3boss/400/250" alt="BOSS打法攻略">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">大圣降临副本全BOSS通关技巧</h2>
+                            <p class="card-desc">详解如何应对大圣降临副本中的四大BOSS，推荐装备搭配与技能释放时机，助你轻松通关。</p>
+                            <div class="card-meta">
+                                <span class="tag tag-high">高难度</span>
+                                <span>更新于 2023-10</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/ddz3item/400/250" alt="装备获取指南">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">造梦西游3最强装备获取途径汇总</h2>
+                            <p class="card-desc">从玄冰铁到宣花袍，全面解析游戏中稀有装备的掉落地点与合成配方。</p>
+                            <div class="card-meta">
+                                <span class="tag tag-med">进阶</span>
+                                <span>更新于 2023-09</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/ddz3boss2/400/250" alt="BOSS详解">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">牛魔王与金翅大鹏鹏打法详解</h2>
+                            <p class="card-desc">针对无敌版中数值调整后的BOSS，分析其攻击模式并提供应对策略。</p>
+                            <div class="card-meta">
+                                <span class="tag tag-high">BOSS战</span>
+                                <span>更新于 2023-11</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 技能加点表 -->
+            <section id="skills">
+                <div class="section-title">
+                    <span>职业技能加点推荐</span>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--box-shadow);">
+                    <table class="skills-table">
+                        <thead>
+                            <tr>
+                                <th>角色</th>
+                                <th>核心加点思路</th>
+                                <th>推荐技能</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>孙悟空</strong></td>
+                                <td>主修【七十二变】与【火眼金睛】</td>
+                                <td><span class="tag tag-high">重斩</span><span class="tag tag-med">火眼金睛</span><span class="tag tag-low">烈焰闪</span></td>
+                                <td>无敌版中普攻伤害提升，重斩为主要输出手段。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>唐僧</strong></td>
+                                <td>主修【紧箍咒】与【水幻影】</td>
+                                <td><span class="tag tag-high">紧箍咒</span><span class="tag tag-med">紧箍咒</span><span class="tag tag-low">水幻影</span></td>
+                                <td>控制技能是关键，避免被BOSS近身。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>沙悟净</strong></td>
+                                <td>主修【圣域之墙】与【木魔舞】</td>
+                                <td><span class="tag tag-high">木魔舞</span><span class="tag tag-med">圣域之墙</span><span class="tag tag-low">土魔舞</span></td>
+                                <td>生存能力极强，适合新手挑战高难度BOSS。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 下载与版本说明 -->
+            <section>
+                <div class="section-title">
+                    <span>版本说明与下载</span>
+                </div>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 1rem;">当前版本特点</h3>
+                        <ul style="list-style-type: disc; padding-left: 20px; color: #555;">
+                            <li><strong>全英雄解锁</strong>：无需完成特定任务即可选择所有角色。</li>
+                            <li><strong>属性大幅增强</strong>：角色初始等级提升，技能冷却时间缩短。</li>
+                            <li><strong>资源无限</strong>：钻石与金币获取无限制，装备合成更便捷。</li>
+                            <li><strong>BOSS属性调整</strong>：优化了部分BOSS的数值，降低通关难度。</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 1rem;">安全下载提示</h3>
+                        <p style="margin-bottom: 1rem;">为确保您的账号安全，请务必从官方合作渠道或本站提供的可信链接下载游戏客户端。</p>
+                        <button class="cta-button" style="width: 100%; padding: 10px;">下载游戏客户端 (v1.0)</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- 右侧侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门排行</h3>
+                <ul class="hot-list">
+                    <li>
+                        <a href="#">
+                            <span><span class="hot-num">1</span>造梦西游3最强阵容搭配</span>
+                            <span>🔥</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><span class="hot-num">2</span>小雷音寺副本通关攻略</span>
+                            <span>🔥</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><span class="hot-num">3</span>如何快速刷取宣花红袍</span>
+                            <span>🔥</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><span class="hot-num">4</span>沙僧PVP对战技巧</span>
+                            <span>🔥</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><span class="hot-num">5</span>造梦3宠物培养全攻略</span>
+                            <span>🔥</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">游戏资讯</h3>
+                <article style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                    <a href="#" style="font-weight: bold; display: block; margin-bottom: 5px;">游戏更新日志 v1.2</a>
+                    <p style="font-size: 0.85rem; color: #666;">新增了情人节限定道具，修复了部分技能判定错误。</p>
+                </article>
+                <article>
+                    <a href="#" style="font-weight: bold; display: block; margin-bottom: 5px;">春节活动预告</a>
+                    <p style="font-size: 0.85rem; color: #666;">春节期间登录即可领取大量元宝和稀有坐骑。</p>
+                </article>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">关于本站</h3>
+                <p style="font-size: 0.9rem; color: #666;">本站致力于为《4399造梦西游3无敌版》的玩家提供最详尽的攻略支持与游戏资讯。请勿沉迷游戏，合理安排时间。</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FAQ 常见问题 -->
+    <section id="faq">
+        <div class="section-title">常见问题解答 (FAQ)</div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">无敌版是否包含所有游戏内容？</div>
+                <div class="faq-answer">
+                    <p>是的，无敌版通常解锁了所有角色、技能以及部分隐藏的装备和道具，让玩家无需繁琐的重复任务即可体验游戏全流程。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何保存游戏进度？</div>
+                <div class="faq-answer">
+                    <p>游戏支持自动存档功能。只要您在游戏内点击存档按钮或达到特定关卡节点，进度会自动保存到本地浏览器缓存中。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">遇到卡顿或无法加载怎么办？</div>
+                <div class="faq-answer">
+                    <p>建议清理浏览器缓存，或更换网络环境。如果问题依旧，请检查您的Flash播放器版本是否为最新。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">角色技能点可以重置吗？</div>
+                <div class="faq-answer">
+                    <p>在无敌版中，您可以在游戏内的技能界面找到“重置技能点”的选项，消耗少量金币即可重新分配技能点。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>关于造梦</h3>
+                <p>4399造梦西游系列是一款经典的横版过关动作游戏，以其精美的画风和丰富的剧情深受玩家喜爱。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">游戏首页</a></li>
+                    <li><a href="#">新手入门</a></li>
+                    <li><a href="#">装备大全</a></li>
+                    <li><a href="#">BOSS图鉴</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系支持</h3>
+                <ul>
+                    <li><a href="#">提交Bug</a></li>
+                    <li><a href="#">合作洽谈</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 造梦攻略站. All Rights Reserved. 本站仅为玩家提供攻略参考，游戏版权归原开发方所有。</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ 交互逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // 关闭所有其他的 FAQ
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('open');
+                    q.nextElementSibling.style.maxHeight = null;
+                });
+
+                // 如果点击的不是已经打开的，则打开它
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+                      </html>
