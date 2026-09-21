@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UC浏览 - 简洁高效的移动端浏览器解决方案，提供极速内核、隐私保护、海量资源下载及个性化设置，助您轻松浏览互联网。">
+    <meta name="keywords" content="UC浏览, 浏览器, 移动浏览器, 极速浏览, 下载工具, 隐私保护">
+    <title>UC浏览 - 极速安全与海量资源下载平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --primary-hover: #e55c00;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--card-bg);
+            height: var(--header-height);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background-color: #f0f0f0;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 12px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        .hero-image-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23f0f0f0" opacity="0.5"/></svg>');
+            opacity: 0.3;
+        }
+
+        /* 特性功能区 */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 24px rgba(255, 107, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #fff5f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* 下载与资源区 */
+        .resources-section {
+            background-color: #fff;
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .resource-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .resource-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .resource-info p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .resource-item-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .resource-item-info span {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .resource-btn {
+            padding: 8px 16px;
+            background-color: var(--text-main);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .resource-visual {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            border: 1px dashed var(--border-color);
+        }
+
+        /* 常见问题 FAQ */
+        .faq-section {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: var(--card-bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+        }
+
+        .faq-answer p {
+            padding: 20px 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-question {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2d3436;
+            color: #b2bec3;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .resource-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#ff6b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#ff6b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#ff6b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>UC浏览</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#download">下载中心</a></li>
+                    <li><a href="#help">帮助中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#download" class="btn btn-primary">立即下载</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="container">
+                <h1>UC浏览：极速、安全、海量资源</h1>
+                <p>新一代移动端浏览器，搭载智能内核，为您提供无广告干扰的纯净阅读体验，同时内置强大的下载管理与文件解析引擎。</p>
+                <div class="hero-tags">
+                    <span class="tag">⚡ 极速内核</span>
+                    <span class="tag">🛡️ 隐私保护</span>
+                    <span class="tag">📥 文件解析</span>
+                    <span class="tag">🎨 极简界面</span>
+                </div>
+                <div class="hero-image-placeholder">
+                    <span>UC浏览 APP 界面展示</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心功能区 -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为何选择 UC浏览？</h2>
+                    <p>专为现代网络环境设计，解决浏览卡顿、隐私泄露及文件获取难的问题</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>智能极速内核</h3>
+                        <p>采用最新渲染引擎，大幅提升网页加载速度。智能预加载技术，让您在点击链接前内容已准备就绪，告别等待。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>隐私安全卫士</h3>
+                        <p>内置强大的隐私保护机制，支持无痕模式访问。自动拦截恶意广告和追踪脚本，保护您的个人数据不被泄露。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📥</div>
+                        <h3>万能文件解析</h3>
+                        <p>UC浏览内置强大的文件解析器。支持直接在浏览器内预览和下载视频、文档、压缩包等多种格式文件，无需跳转。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>全网资源聚合</h3>
+                        <p>整合全网优质内容，提供定制化的资讯流。支持离线缓存，让您在没有网络的环境下也能畅享精彩内容。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下载与资源 -->
+        <section id="download" class="resources-section">
+            <div class="container">
+                <div class="resource-layout">
+                    <div class="resource-info">
+                        <h2>获取最新版本</h2>
+                        <p>无论您使用的是 Android 手机还是 iOS 设备，我们提供适配最新系统的稳定版本。定期更新以修复漏洞并优化性能。</p>
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <div class="resource-item-info">
+                                    <h4>UC浏览 v12.5.0</h4>
+                                    <span>Android / iOS / PC</span>
+                                </div>
+                                <a href="#" class="resource-btn">下载</a>
+                            </div>
+                            <div class="resource-item">
+                                <div class="resource-item-info">
+                                    <h4>极速精简版</h4>
+                                    <span>低内存设备优化</span>
+                                </div>
+                                <a href="#" class="resource-btn">下载</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-visual">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#ff6b00" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <p style="margin-top: 20px; color: #666;">点击上方按钮即可获取安装包</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section id="help" class="faq-section">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">UC浏览支持哪些系统？</div>
+                    <div class="faq-answer">
+                        <p>UC浏览支持 Android 5.0 及以上版本、iOS 12.0 及以上版本，以及 Windows 10/11 电脑端。我们致力于覆盖主流设备平台。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何开启无痕浏览模式？</div>
+                    <div class="faq-answer">
+                        <p>在浏览器界面点击右上角的菜单图标（三条横线），选择“无痕模式”即可开启。无痕模式下，历史记录和 Cookie 不会被保存。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的文件保存在哪里？</div>
+                    <div class="faq-answer">
+                        <p>默认情况下，文件会保存在手机或电脑的“UC浏览下载”文件夹中。您可以在浏览器的“下载管理”中查看、移动或删除这些文件。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>UC浏览</h3>
+                    <p>致力于为全球用户提供简单、快速、安全的网络浏览服务，打造属于您的个性化互联网入口。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="#">功能介绍</a></li>
+                        <li><a href="#">更新日志</a></li>
+                        <li><a href="#">企业版</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">使用帮助</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">反馈建议</a></li>
+                        <li><a href="#">合作咨询</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 UC浏览 Team. All rights reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
